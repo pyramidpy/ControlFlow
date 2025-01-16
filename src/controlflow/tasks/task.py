@@ -41,6 +41,7 @@ from controlflow.memory.async_memory import AsyncMemory
 from controlflow.memory.memory import Memory
 from controlflow.tools import Tool, tool
 from controlflow.tools.input import cli_input
+from controlflow.tools.user_input import user_input
 from controlflow.tools.tools import as_tools
 from controlflow.utilities.context import ctx
 from controlflow.utilities.general import (
@@ -543,7 +544,7 @@ class Task(ControlFlowModel):
         """
         tools = self.tools.copy()
         if self.interactive:
-            tools.append(cli_input)
+            tools.append(user_input)
         for memory in self.memories:
             tools.extend(memory.get_tools())
         return as_tools(tools)

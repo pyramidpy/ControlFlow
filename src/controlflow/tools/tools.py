@@ -308,7 +308,7 @@ def output_to_string(output: Any) -> str:
 class ToolResult(ControlFlowModel):
     tool_call: Union[ToolCall, InvalidToolCall]
     tool: Optional[Tool] = None
-    result: Any = Field(exclude=True, repr=False)
+    result: Any = Field(repr=False)
     str_result: str = Field(repr=False)
     is_error: bool = False
 
